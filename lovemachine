@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pokémon Valentine 💖</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffcb05, #ff0000);
+      font-family: "Trebuchet MS", sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      width: 320px;
+    }
+
+    h1 {
+      color: #2a75bb;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      position: relative;
+      height: 100px;
+    }
+
+    button {
+      border: none;
+      border-radius: 30px;
+      padding: 12px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background: #2a75bb;
+      color: white;
+      font-size: 18px;
+    }
+
+    #noBtn {
+      background: #ff4d4d;
+      color: white;
+      position: absolute;
+      right: 0;
+    }
+
+    .heart {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="heart">💖⚡</div>
+    <h1>Kiana,<br>will you be my Valentine?</h1>
+
+    <div class="buttons">
+      <button id="yesBtn" onclick="sayYes()">Yes 💕</button>
+      <button id="noBtn" onclick="makeYesBigger()">No 🙈</button>
+    </div>
+  </div>
+
+  <script>
+    let yesSize = 18;
+
+    function makeYesBigger() {
+      yesSize += 10;
+      const yesBtn = document.getElementById("yesBtn");
+      const noBtn = document.getElementById("noBtn");
+
+      yesBtn.style.fontSize = yesSize + "px";
+      yesBtn.style.padding = (12 + yesSize / 3) + "px " + (25 + yesSize / 2) + "px";
+
+      // Make the No button move around
+      const x = Math.random() * 150;
+      const y = Math.random() * 60;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function sayYes() {
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          height:100vh;
+          background:#ffcb05;
+          font-family:Trebuchet MS, sans-serif;
+          text-align:center;">
+          <div>
+            <h1 style="color:#2a75bb;">You chose wisely 💖</h1>
+            <p style="font-size:22px;">It's super effective! ⚡</p>
+            <p style="font-size:40px;">🥰✨</p>
+          </div>
+        </div>`;
+    }
+  </script>
+</body>
+</html>
